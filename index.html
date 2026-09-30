@@ -3,249 +3,1122 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Scrapbird Madanapalle - doorstep household scrap pickup and transparent scrap rates.">
-<title>Scrapbird | Scrap Prices & Doorstep Pickup</title>
+
+<meta name="description" content="Scrapbird Madanapalle - recyclable scrap pickup and transparent scrap rates.">
+
+<title>Scrapbird | Recyclables We Pick</title>
+
 <style>
-:root {
-  --green:#08783b; --dark:#053b23; --lime:#baf35b; --soft:#effbea;
-  --text:#102018; --muted:#607067; --white:#fff;
+
+:root{
+  --green:#08783b;
+  --green2:#19c768;
+  --dark:#053b23;
+  --light:#effbea;
+  --text:#111;
+  --muted:#666;
 }
-* { box-sizing:border-box; }
-html { scroll-behavior:smooth; }
-body {
-  margin:0; font-family:Arial,Helvetica,sans-serif; color:var(--text);
-  background:linear-gradient(180deg,#f8fff5 0%,#fff 45%,#effbea 100%);
+
+*{
+  box-sizing:border-box;
 }
-.container { width:min(1120px,92%); margin:auto; }
-header {
-  position:sticky; top:0; z-index:10; background:rgba(255,255,255,.94);
-  backdrop-filter:blur(10px); border-bottom:1px solid #dcebdd;
+
+html{
+  scroll-behavior:smooth;
 }
-.nav { display:flex; align-items:center; justify-content:space-between; padding:14px 0; gap:20px; }
-.brand {
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--text);
+  background:#fff;
+}
+
+.container{
+  width:min(1000px,92%);
+  margin:auto;
+}
+
+
+/* HEADER */
+
+header{
+  background:#fff;
+  border-bottom:1px solid #eeeeee;
+  padding:13px 0;
+  position:sticky;
+  top:0;
+  z-index:20;
+}
+
+.nav{
   display:flex;
   align-items:center;
-  gap:10px;
+  justify-content:space-between;
 }
 
-.brand-logo {
-  width:150px;
-  height:auto;
-  max-height:52px;
+.logo{
+  width:140px;
+  max-height:48px;
   object-fit:contain;
-  display:block;
 }
 
-.nav a {
-  color:var(--dark);
+.top-whatsapp{
+  background:var(--green);
+  color:#fff;
   text-decoration:none;
+  padding:10px 14px;
+  border-radius:10px;
+  font-size:12px;
+  font-weight:800;
 }
-.btn {
-  display:inline-flex; align-items:center; justify-content:center; gap:8px;
-  padding:13px 18px; border-radius:12px; text-decoration:none; font-weight:800;
+
+
+/* HERO */
+
+.hero{
+  padding:30px 0 45px;
+  text-align:center;
+  background:
+    linear-gradient(
+      180deg,
+      #fff 0%,
+      #fff 70%,
+      #f0ffed 100%
+    );
 }
-.btn-primary { background:var(--green); color:#fff; box-shadow:0 8px 22px #08783b2b; }
-.btn-light { background:#fff; color:var(--green); border:1px solid #cfe4d2; }
-.hero { padding:48px 0 35px; }
-.hero-grid { display:grid; grid-template-columns:1.05fr .95fr; gap:36px; align-items:center; }
-.badge { display:inline-block; background:#ddf7c4; color:var(--dark); padding:8px 12px; border-radius:999px; font-weight:800; }
-h1 { font-size:clamp(42px,6vw,72px); line-height:.95; margin:18px 0; letter-spacing:-2px; }
-h1 span { color:var(--green); }
-.hero p { font-size:19px; line-height:1.6; color:var(--muted); max-width:650px; }
-.actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:24px; }
-.poster {
-  border-radius:24px; overflow:hidden; box-shadow:0 20px 50px #154d2828;
-  border:7px solid #fff; background:#fff;
+
+.hero-title{
+  margin:0;
+  font-size:clamp(42px,8vw,78px);
+  line-height:.95;
+  letter-spacing:-4px;
+  font-weight:900;
 }
-.poster img { display:block; width:100%; height:auto; }
-.section { padding:48px 0; }
-.section-head { text-align:center; margin-bottom:26px; }
-.section-head h2 { font-size:38px; margin:0 0 8px; color:var(--dark); }
-.section-head p { color:var(--muted); margin:0; }
-.rates { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
-.rate-card {
-  background:#fff; border:1px solid #dcebdd; border-radius:18px; padding:20px;
-  display:flex; align-items:center; justify-content:space-between; gap:16px;
-  box-shadow:0 8px 25px #164c2510;
+
+.hero-title .green{
+  color:var(--green);
 }
-.rate-card h3 { margin:0 0 5px; font-size:22px; }
-.rate-card p { margin:0; color:var(--muted); }
-.rate-card strong {
-  background:var(--green); color:#fff; padding:11px 15px; border-radius:12px;
-  white-space:nowrap; font-size:21px;
+
+.hero-subtitle{
+  margin:20px auto 0;
+  max-width:850px;
+  color:#686868;
+  font-size:clamp(17px,3vw,29px);
+  line-height:1.35;
 }
-.features { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
-.feature { background:#fff; padding:22px; border-radius:18px; border:1px solid #dcebdd; text-align:center; }
-.icon { font-size:32px; }
-.feature h3 { margin:10px 0 5px; }
-.feature p { margin:0; color:var(--muted); line-height:1.5; }
-.cta {
-  background:linear-gradient(135deg,var(--dark),var(--green)); color:#fff;
-  border-radius:28px; padding:36px; display:flex; align-items:center;
-  justify-content:space-between; gap:24px;
+
+
+/* SCRAP COLLAGE */
+
+.scrap-collage{
+  position:relative;
+  max-width:850px;
+  height:530px;
+  margin:40px auto 25px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(213,250,220,.42) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      rgba(213,250,220,.42) 1px,
+      transparent 1px
+    );
+
+  background-size:115px 115px;
+  border-radius:28px;
 }
-.cta h2 { margin:0 0 8px; font-size:34px; }
-.cta p { margin:0; opacity:.9; }
-.note { text-align:center; color:var(--muted); font-size:14px; margin-top:18px; }
-footer { padding:30px 0 100px; text-align:center; color:var(--muted); }
-.mobile-cta {
-  display:none; position:fixed; left:12px; right:12px; bottom:12px; z-index:20;
+
+
+/* SCRAP ITEMS */
+
+.scrap-item{
+  position:absolute;
+  text-align:center;
+  z-index:2;
 }
-@media(max-width:800px) {
-  .nav a:not(.btn) { display:none; }
-  .hero-grid { grid-template-columns:1fr; }
-  .rates { grid-template-columns:1fr; }
-  .features { grid-template-columns:1fr 1fr; }
-  .cta { flex-direction:column; align-items:flex-start; }
-  .mobile-cta { display:flex; }
+
+.scrap-emoji{
+  font-size:clamp(48px,7vw,78px);
+  line-height:1;
+  filter:drop-shadow(0 7px 7px rgba(0,0,0,.12));
 }
-@media(max-width:480px) {
-  .features { grid-template-columns:1fr; }
-  .rate-card { padding:15px; }
-  .rate-card strong { font-size:18px; }
-  h1 { font-size:48px; }
+
+.scrap-name{
+  margin-top:8px;
+  color:#075d32;
+  font-size:16px;
+  font-weight:800;
 }
+
+
+/* POSITIONS */
+
+.paper{
+  left:5%;
+  top:43%;
+}
+
+.plastic{
+  left:21%;
+  top:16%;
+}
+
+.aluminium{
+  left:43%;
+  top:7%;
+}
+
+.iron{
+  right:18%;
+  top:22%;
+}
+
+.copper{
+  right:3%;
+  top:45%;
+}
+
+.brass{
+  right:18%;
+  bottom:5%;
+}
+
+.cardboard{
+  left:39%;
+  bottom:3%;
+}
+
+.books{
+  left:8%;
+  bottom:5%;
+}
+
+
+/* ARROWS */
+
+.arrow{
+  position:absolute;
+  color:var(--green);
+  font-size:36px;
+  font-weight:900;
+  z-index:3;
+}
+
+.arrow-paper{
+  left:17%;
+  top:47%;
+  transform:rotate(-25deg);
+}
+
+.arrow-plastic{
+  left:29%;
+  top:25%;
+  transform:rotate(20deg);
+}
+
+.arrow-aluminium{
+  left:51%;
+  top:20%;
+  transform:rotate(-10deg);
+}
+
+.arrow-iron{
+  right:27%;
+  top:33%;
+  transform:rotate(-20deg);
+}
+
+.arrow-copper{
+  right:14%;
+  top:52%;
+  transform:rotate(25deg);
+}
+
+.arrow-brass{
+  right:28%;
+  bottom:12%;
+  transform:rotate(-15deg);
+}
+
+.arrow-cardboard{
+  left:51%;
+  bottom:13%;
+}
+
+.arrow-books{
+  left:23%;
+  bottom:13%;
+  transform:rotate(-20deg);
+}
+
+
+/* PRICE BUTTON */
+
+.price-button-wrap{
+  margin-top:20px;
+}
+
+.price-button{
+  border:0;
+  cursor:pointer;
+
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+
+  min-width:310px;
+
+  padding:18px 28px;
+
+  border-radius:18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #08783b,
+      #19c768
+    );
+
+  color:#fff;
+
+  font-size:20px;
+  font-weight:900;
+
+  box-shadow:
+    0 12px 30px rgba(8,120,59,.25);
+
+  transition:.2s;
+}
+
+.price-button:hover{
+  transform:translateY(-3px);
+}
+
+.price-icon{
+  width:42px;
+  height:42px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:50%;
+
+  background:rgba(255,255,255,.2);
+
+  font-size:22px;
+}
+
+.price-arrow{
+  font-size:28px;
+}
+
+
+/* PRICE SECTION */
+
+#prices{
+  display:none;
+  padding:60px 0;
+  background:#f5fff2;
+}
+
+#prices.show{
+  display:block;
+  animation:reveal .5s ease;
+}
+
+@keyframes reveal{
+
+  from{
+    opacity:0;
+    transform:translateY(-20px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:28px;
+}
+
+.section-title h2{
+  margin:0;
+  font-size:40px;
+  color:var(--dark);
+}
+
+.section-title p{
+  margin:8px 0 0;
+  color:var(--muted);
+}
+
+
+/* PRICE CARDS */
+
+.price-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+
+.price-card{
+  display:flex;
+  align-items:center;
+  gap:14px;
+
+  background:#fff;
+
+  border:1px solid #dcebdd;
+
+  border-radius:18px;
+
+  padding:16px;
+
+  box-shadow:0 7px 20px rgba(0,0,0,.05);
+}
+
+.price-emoji{
+  width:55px;
+  height:55px;
+
+  flex-shrink:0;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:15px;
+
+  background:var(--light);
+
+  font-size:30px;
+}
+
+.price-info{
+  flex:1;
+}
+
+.price-info h3{
+  margin:0 0 4px;
+  font-size:18px;
+}
+
+.price-info p{
+  margin:0;
+  color:#888;
+  font-size:11px;
+}
+
+.price-value{
+  color:var(--green);
+  font-size:19px;
+  font-weight:900;
+  white-space:nowrap;
+}
+
+
+/* WHATSAPP */
+
+.whatsapp{
+  padding:50px 0;
+  text-align:center;
+}
+
+.whatsapp-box{
+  padding:35px 20px;
+  border-radius:25px;
+
+  color:#fff;
+
+  background:
+    linear-gradient(
+      135deg,
+      #053b23,
+      #08783b
+    );
+}
+
+.whatsapp-box h2{
+  margin:0 0 8px;
+  font-size:32px;
+}
+
+.whatsapp-box p{
+  margin:0 0 22px;
+  color:#d8f5df;
+  font-size:14px;
+}
+
+.whatsapp-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+
+  padding:15px 24px;
+
+  border-radius:14px;
+
+  background:#19d26b;
+
+  color:#06351f;
+
+  text-decoration:none;
+
+  font-size:16px;
+  font-weight:900;
+}
+
+
+/* NOTE */
+
+.note{
+  max-width:650px;
+  margin:20px auto 0;
+
+  text-align:center;
+
+  color:#777;
+
+  font-size:11px;
+  line-height:1.6;
+}
+
+
+/* FOOTER */
+
+footer{
+  padding:28px 15px 35px;
+
+  text-align:center;
+
+  color:#888;
+
+  font-size:11px;
+
+  border-top:1px solid #eee;
+}
+
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+  .logo{
+    width:120px;
+  }
+
+  .top-whatsapp{
+    font-size:10px;
+    padding:9px 11px;
+  }
+
+  .hero{
+    padding-top:25px;
+  }
+
+  .hero-title{
+    letter-spacing:-2px;
+  }
+
+  .hero-subtitle{
+    font-size:17px;
+  }
+
+  .scrap-collage{
+    height:430px;
+    margin-top:30px;
+    background-size:85px 85px;
+  }
+
+  .scrap-emoji{
+    font-size:42px;
+  }
+
+  .scrap-name{
+    font-size:11px;
+  }
+
+  .arrow{
+    font-size:22px;
+  }
+
+  .price-button{
+    width:92%;
+    min-width:0;
+    font-size:17px;
+    padding:16px 18px;
+  }
+
+  #prices{
+    padding:45px 0;
+  }
+
+  .section-title h2{
+    font-size:30px;
+  }
+
+  .price-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+
+/* SMALL PHONE */
+
+@media(max-width:380px){
+
+  .scrap-collage{
+    height:390px;
+  }
+
+  .scrap-emoji{
+    font-size:35px;
+  }
+
+  .scrap-name{
+    font-size:9px;
+  }
+
+  .arrow{
+    display:none;
+  }
+
+  .price-card{
+    padding:13px;
+  }
+
+  .price-emoji{
+    width:48px;
+    height:48px;
+    font-size:26px;
+  }
+
+  .price-value{
+    font-size:16px;
+  }
+
+}
+
 </style>
 </head>
+
+
 <body>
+
+
+<!-- HEADER -->
+
 <header>
+
   <div class="container nav">
-    <a class="brand" href="#">
-  <img class="brand-logo" src="scrapbird-logo.png" alt="Scrapbird logo">
-</a>
-    <nav>
-      <a href="#rates">Rates</a>
-      <a href="#how">Why Scrapbird</a>
-      <a class="btn btn-primary" href="https://wa.me/919030755506?text=Hi%20Scrapbird%2C%20I%20want%20to%20book%20a%20scrap%20pickup." target="_blank">WhatsApp Pickup</a>
-    </nav>
+
+    <a href="#">
+      <img
+        class="logo"
+        src="scrapbird-logo.png"
+        alt="Scrapbird">
+    </a>
+
+    <a
+      class="top-whatsapp"
+      href="https://wa.me/919030755506?text=Hi%20Scrapbird%2C%20I%20want%20to%20book%20a%20scrap%20pickup."
+      target="_blank">
+
+      WhatsApp Pickup
+
+    </a>
+
   </div>
+
 </header>
 
-<main>
+
+
+<!-- HERO -->
+
 <section class="hero">
-  <div class="container hero-grid">
-    <div>
-      <span class="badge">♻ Madanapalle • Doorstep Pickup</span>
-      <h1>Your scrap.<br><span>Your money.</span></h1>
-      <p>Sell your household metal and recyclable scrap with clear rates, accurate weighing and convenient doorstep pickup from Scrapbird.</p>
-      <div class="actions">
-        <a class="btn btn-primary" href="https://wa.me/919030755506?text=Hi%20Scrapbird%2C%20I%20want%20to%20book%20a%20scrap%20pickup." target="_blank">📲 Book Pickup</a>
-        <a class="btn btn-light" href="#rates">View Today's Rates</a>
+
+  <div class="container">
+
+    <h1 class="hero-title">
+      Recyclables
+      <span class="green">we pick</span>
+    </h1>
+
+
+    <div class="hero-subtitle">
+
+      Paper | Plastic | Metals | E-Waste | Appliances
+
+      <br>
+
+      & More
+
+    </div>
+
+
+    <!-- SCRAP EMOJIS -->
+
+    <div class="scrap-collage">
+
+
+      <div class="scrap-item paper">
+
+        <div class="scrap-emoji">📰</div>
+
+        <div class="scrap-name">
+          Paper
+        </div>
+
       </div>
-    </div>
-    
-  </div>
-</section>
 
-<section class="section" id="rates">
-  <div class="container">
-    <div class="section-head">
-      <h2>Scrapbird Rates</h2>
-      <p>Today’s rates • Madanapalle</p>
-    </div>
-    <div class="rates">
-      
-<article class="rate-card">
-  <div>
-    <h3>🧲 Iron</h3>
-    <p>Metal scrap</p>
-  </div>
-  <strong>₹25/kg</strong>
-</article>
 
-<article class="rate-card">
-  <div>
-    <h3>🥫 Aluminium</h3>
-    <p>Cans, utensils, etc.</p>
-  </div>
-  <strong>₹180/kg</strong>
-</article>
+      <div class="scrap-item plastic">
 
-<article class="rate-card">
-  <div>
-    <h3>🔌 Copper</h3>
-    <p>Copper wires</p>
-  </div>
-  <strong>₹1,150/kg</strong>
-</article>
+        <div class="scrap-emoji">🧴</div>
 
-<article class="rate-card">
-  <div>
-    <h3>🚰 Brass</h3>
-    <p>Brass taps & fittings</p>
-  </div>
-  <strong>₹710/kg</strong>
-</article>
+        <div class="scrap-name">
+          Plastic
+        </div>
 
-<article class="rate-card">
-  <div>
-    <h3>📦 Cardboard</h3>
-    <p>Boxes & cartons</p>
-  </div>
-  <strong>₹8/kg</strong>
-</article>
-
-<article class="rate-card">
-  <div>
-    <h3>🧴 Plastic</h3>
-    <p>Plastic scrap</p>
-  </div>
-  <strong>₹10.5/kg</strong>
-</article>
-
-<article class="rate-card">
-  <div>
-    <h3>📚 Books</h3>
-    <p>Old books & notebooks</p>
-  </div>
-  <strong>₹12/kg</strong>
-</article>
-
-<article class="rate-card">
-  <div>
-    <h3>📰 Newspaper</h3>
-    <p>Newspapers & magazines</p>
-  </div>
-  <strong>₹13/kg</strong>
-</article>
-    
-    </div>
-    <p class="note">Rates may change according to market price and material quality. Bulk/business quantities may receive better rates.</p>
-  </div>
-</section>
-
-<section class="section" id="how">
-  <div class="container">
-    <div class="section-head">
-      <h2>Why Scrapbird?</h2>
-      <p>Simple pickup. Fair pricing. Cleaner Madanapalle.</p>
-    </div>
-    <div class="features">
-      <div class="feature"><div class="icon">⚖️</div><h3>Accurate Weighing</h3><p>Know the weight before payment.</p></div>
-      <div class="feature"><div class="icon">💵</div><h3>Instant Payment</h3><p>Get paid after the scrap is weighed.</p></div>
-      <div class="feature"><div class="icon">🛵</div><h3>Doorstep Pickup</h3><p>Book a pickup without leaving home.</p></div>
-      <div class="feature"><div class="icon">🌱</div><h3>Cleaner Future</h3><p>Help recycle more and waste less.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="cta">
-      <div>
-        <h2>Have scrap at home?</h2>
-        <p>Send a WhatsApp message and book your Scrapbird pickup.</p>
       </div>
-      <a class="btn btn-light" href="https://wa.me/919030755506?text=Hi%20Scrapbird%2C%20please%20arrange%20a%20pickup%20in%20Madanapalle." target="_blank">WhatsApp: 90307 55506</a>
+
+
+      <div class="scrap-item aluminium">
+
+        <div class="scrap-emoji">🥫</div>
+
+        <div class="scrap-name">
+          Aluminium
+        </div>
+
+      </div>
+
+
+      <div class="scrap-item iron">
+
+        <div class="scrap-emoji">🧲</div>
+
+        <div class="scrap-name">
+          Iron
+        </div>
+
+      </div>
+
+
+      <div class="scrap-item copper">
+
+        <div class="scrap-emoji">🔌</div>
+
+        <div class="scrap-name">
+          Copper
+        </div>
+
+      </div>
+
+
+      <div class="scrap-item brass">
+
+        <div class="scrap-emoji">🚰</div>
+
+        <div class="scrap-name">
+          Brass
+        </div>
+
+      </div>
+
+
+      <div class="scrap-item cardboard">
+
+        <div class="scrap-emoji">📦</div>
+
+        <div class="scrap-name">
+          Cardboard
+        </div>
+
+      </div>
+
+
+      <div class="scrap-item books">
+
+        <div class="scrap-emoji">📚</div>
+
+        <div class="scrap-name">
+          Books
+        </div>
+
+      </div>
+
+
+      <!-- ARROWS -->
+
+      <div class="arrow arrow-paper">↙</div>
+
+      <div class="arrow arrow-plastic">↘</div>
+
+      <div class="arrow arrow-aluminium">↙</div>
+
+      <div class="arrow arrow-iron">↙</div>
+
+      <div class="arrow arrow-copper">↘</div>
+
+      <div class="arrow arrow-brass">↖</div>
+
+      <div class="arrow arrow-cardboard">↑</div>
+
+      <div class="arrow arrow-books">↗</div>
+
     </div>
+
+
+    <!-- SEE PRICE LIST -->
+
+    <div class="price-button-wrap">
+
+      <button
+        class="price-button"
+        onclick="showPrices()">
+
+        <span class="price-icon">
+          📋
+        </span>
+
+        <span id="priceButtonText">
+          See Full Price List
+        </span>
+
+        <span
+          class="price-arrow"
+          id="priceArrow">
+
+          ↓
+
+        </span>
+
+      </button>
+
+    </div>
+
   </div>
+
 </section>
-</main>
+
+
+
+<!-- PRICES -->
+
+<section id="prices">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <h2>
+        Scrapbird Rates
+      </h2>
+
+      <p>
+        Today's rates • Madanapalle
+      </p>
+
+    </div>
+
+
+    <div class="price-grid">
+
+
+      <article class="price-card">
+
+        <div class="price-emoji">
+          🧲
+        </div>
+
+        <div class="price-info">
+
+          <h3>Iron</h3>
+
+          <p>Metal scrap</p>
+
+        </div>
+
+        <div class="price-value">
+          ₹25/kg
+        </div>
+
+      </article>
+
+
+      <article class="price-card">
+
+        <div class="price-emoji">
+          🥫
+        </div>
+
+        <div class="price-info">
+
+          <h3>Aluminium</h3>
+
+          <p>Cans & utensils</p>
+
+        </div>
+
+        <div class="price-value">
+          ₹180/kg
+        </div>
+
+      </article>
+
+
+      <article class="price-card">
+
+        <div class="price-emoji">
+          🔌
+        </div>
+
+        <div class="price-info">
+
+          <h3>Copper</h3>
+
+          <p>Copper wires</p>
+
+        </div>
+
+        <div class="price-value">
+          ₹1,150/kg
+        </div>
+
+      </article>
+
+
+      <article class="price-card">
+
+        <div class="price-emoji">
+          🚰
+        </div>
+
+        <div class="price-info">
+
+          <h3>Brass</h3>
+
+          <p>Taps & fittings</p>
+
+        </div>
+
+        <div class="price-value">
+          ₹710/kg
+        </div>
+
+      </article>
+
+
+      <article class="price-card">
+
+        <div class="price-emoji">
+          📦
+        </div>
+
+        <div class="price-info">
+
+          <h3>Cardboard</h3>
+
+          <p>Boxes & cartons</p>
+
+        </div>
+
+        <div class="price-value">
+          ₹8/kg
+        </div>
+
+      </article>
+
+
+      <article class="price-card">
+
+        <div class="price-emoji">
+          🧴
+        </div>
+
+        <div class="price-info">
+
+          <h3>Plastic</h3>
+
+          <p>Plastic scrap</p>
+
+        </div>
+
+        <div class="price-value">
+          ₹10.5/kg
+        </div>
+
+      </article>
+
+
+      <article class="price-card">
+
+        <div class="price-emoji">
+          📚
+        </div>
+
+        <div class="price-info">
+
+          <h3>Books</h3>
+
+          <p>Old books & notebooks</p>
+
+        </div>
+
+        <div class="price-value">
+          ₹12/kg
+        </div>
+
+      </article>
+
+
+      <article class="price-card">
+
+        <div class="price-emoji">
+          📰
+        </div>
+
+        <div class="price-info">
+
+          <h3>Newspaper</h3>
+
+          <p>Newspapers & magazines</p>
+
+        </div>
+
+        <div class="price-value">
+          ₹13/kg
+        </div>
+
+      </article>
+
+    </div>
+
+
+    <p class="note">
+
+      Rates may change according to market price
+      and material quality. Final price is confirmed
+      after weighing.
+
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<!-- WHATSAPP -->
+
+<section class="whatsapp">
+
+  <div class="container">
+
+    <div class="whatsapp-box">
+
+      <h2>
+        Have Scrap?
+      </h2>
+
+      <p>
+        Book a Scrapbird doorstep pickup in Madanapalle.
+      </p>
+
+      <a
+        class="whatsapp-button"
+        href="https://wa.me/919030755506?text=Hi%20Scrapbird%2C%20I%20want%20to%20book%20a%20scrap%20pickup%20in%20Madanapalle."
+        target="_blank">
+
+        💬 Book Scrap Pickup
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
 
 <footer>
-  <div class="container">© 2026 Scrapbird • Recycle • Reuse • Rebuild • Madanapalle</div>
+
+  © 2026 Scrapbird • Recycle • Reuse • Rebuild • Madanapalle
+
 </footer>
 
-<a class="btn btn-primary mobile-cta" href="https://wa.me/919030755506?text=Hi%20Scrapbird%2C%20I%20want%20to%20book%20a%20scrap%20pickup." target="_blank">📲 Book Scrapbird Pickup</a>
+
+
+<script>
+
+function showPrices(){
+
+  const prices =
+    document.getElementById("prices");
+
+  const buttonText =
+    document.getElementById("priceButtonText");
+
+  const arrow =
+    document.getElementById("priceArrow");
+
+
+  if(!prices.classList.contains("show")){
+
+    prices.classList.add("show");
+
+    buttonText.textContent =
+      "Hide Price List";
+
+    arrow.textContent = "↑";
+
+
+    setTimeout(function(){
+
+      prices.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+      });
+
+    },100);
+
+
+  }else{
+
+    prices.classList.remove("show");
+
+    buttonText.textContent =
+      "See Full Price List";
+
+    arrow.textContent = "↓";
+
+
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+
+  }
+
+}
+
+</script>
+
+
 </body>
 </html>

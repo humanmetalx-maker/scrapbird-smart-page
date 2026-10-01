@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 <meta name="description"
-content="Scrapbird Madanapalle - Your Scrap. Your Money. Doorstep scrap pickup with transparent rates.">
+      content="Scrapbird Madanapalle - Your Scrap. Your Money. Doorstep scrap pickup with transparent rates.">
 <title>Scrapbird | Your Scrap. Your Money.</title>
 <style>
 /* =====================================================
@@ -37,7 +38,7 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 0 6%;
-    background: rgba(255, 255, 255, 0.94);
+    background: rgba(255,255,255,0.96);
     backdrop-filter: blur(14px);
     border-bottom: 1px solid #eeeeee;
     z-index: 1000;
@@ -56,204 +57,132 @@ header a {
     text-decoration: none;
     font-size: 15px;
     font-weight: 800;
+    padding: 9px 16px;
+    border-radius: 30px;
+    background: #f0fff4;
 }
 /* =====================================================
    HERO
 ===================================================== */
 .hero {
-    position: relative;
     min-height: 100vh;
-    padding: 95px 15px 45px;
+    padding:
+        105px 18px 55px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    overflow: hidden;
     background:
         radial-gradient(
             circle at center,
-            #f2fff5 0%,
-            #ffffff 68%
+            #effff3 0%,
+            #ffffff 65%
         );
 }
 /* =====================================================
-   SOFT GREEN GLOW
+   POSTER
 ===================================================== */
-.glow {
-    position: absolute;
-    width: 440px;
-    height: 440px;
-    border-radius: 50%;
-    background: rgba(50, 190, 75, 0.08);
-    filter: blur(65px);
-    opacity: 0;
-    z-index: 0;
+.poster-wrap {
+    width: min(650px, 94vw);
+    margin: 0 auto 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-/* =====================================================
-   FALLING LEAVES
-===================================================== */
-.leaf {
-    position: absolute;
-    top: -70px;
-    width: 21px;
-    height: 34px;
-    border-radius: 100% 0 100% 0;
-    background:
-        linear-gradient(
-            135deg,
-            #9be238,
-            #08783b
-        );
-    opacity: 0;
-    z-index: 3;
-}
-.leaf::after {
-    content: "";
-    position: absolute;
-    width: 2px;
-    height: 25px;
-    left: 10px;
-    top: 4px;
-    background: rgba(255, 255, 255, 0.75);
-    transform: rotate(-35deg);
-}
-/* =====================================================
-   CIRCULAR REVEAL
-===================================================== */
-.leaf-circle {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 350px;
-    height: 350px;
-    border: 2px solid rgba(8, 120, 59, 0.13);
-    border-radius: 50%;
-    opacity: 0;
-    z-index: 1;
-}
-/* =====================================================
-   SCRAPBIRD LOGO
-===================================================== */
-.logo-box {
-    position: relative;
-    width: min(470px, 88vw);
-    z-index: 5;
-    opacity: 0;
-}
-.logo-box img {
+.poster {
     display: block;
     width: 100%;
-    height: auto;
+    max-height: 68vh;
+    object-fit: contain;
+    border-radius: 24px;
     filter:
         drop-shadow(
-            0 15px 28px
-            rgba(0, 70, 35, 0.13)
+            0 18px 35px
+            rgba(0,70,35,0.14)
+        );
+    transition:
+        transform 0.3s ease,
+        filter 0.3s ease;
+}
+.poster:hover {
+    transform: translateY(-5px) scale(1.01);
+    filter:
+        drop-shadow(
+            0 24px 42px
+            rgba(0,70,35,0.20)
         );
 }
 /* =====================================================
    SCRAPBIRD NAME
 ===================================================== */
 .brand {
-    position: relative;
-    z-index: 10;
-    margin-top: 5px;
     color: #08783b;
     font-size:
-        clamp(30px, 7vw, 55px);
+        clamp(32px, 8vw, 58px);
     font-weight: 900;
     letter-spacing:
         clamp(3px, 1vw, 8px);
-    opacity: 0;
+    margin-top: 4px;
 }
 .brand span {
     color: #064d29;
 }
 /* =====================================================
-   TAGLINE
+   SMALL TAGLINE
 ===================================================== */
 .tagline {
-    position: relative;
-    z-index: 10;
-    margin-top: 5px;
-    color: #65746b;
+    margin-top: 8px;
+    color: #66746b;
     font-size:
-        clamp(11px, 2.5vw, 16px);
+        clamp(12px, 2.5vw, 16px);
     letter-spacing:
-        clamp(2px, 0.6vw, 4px);
-    opacity: 0;
+        clamp(2px, 0.5vw, 4px);
+    font-weight: 700;
 }
 /* =====================================================
    FEATURES
 ===================================================== */
 .features {
-    position: relative;
-    z-index: 10;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
     margin-top: 28px;
-    opacity: 0;
+    max-width: 700px;
 }
 .feature {
-    min-width: 115px;
-    padding: 12px 16px;
+    min-width: 125px;
+    padding: 13px 16px;
     background: #ffffff;
-    border: 1px solid #e2eee6;
+    border: 1px solid #e1eee5;
     border-radius: 18px;
     box-shadow:
-        0 7px 22px
-        rgba(0, 80, 40, 0.07);
+        0 8px 22px
+        rgba(0,80,40,0.07);
     color: #08783b;
     font-size: 13px;
     font-weight: 800;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+.feature:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 13px 28px
+        rgba(0,80,40,0.11);
 }
 .feature strong {
     display: block;
-    margin-bottom: 4px;
+    margin-bottom: 5px;
     font-size: 25px;
-}
-/* =====================================================
-   RECYCLABLES POSTER
-===================================================== */
-.recyclables-section {
-    padding: 35px 14px 65px;
-    background: #ffffff;
-    text-align: center;
-}
-.poster-link {
-    display: block;
-    width: min(900px, 100%);
-    margin: auto;
-    text-decoration: none;
-    transition: transform 0.25s ease;
-}
-.recyclables-poster {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 22px;
-    box-shadow:
-        0 15px 45px
-        rgba(0, 80, 40, 0.12);
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
-}
-.poster-link:hover {
-    transform: translateY(-4px);
-}
-.poster-link:hover .recyclables-poster {
-    box-shadow:
-        0 22px 55px
-        rgba(0, 80, 40, 0.18);
 }
 /* =====================================================
    PRICE SECTION
 ===================================================== */
 .prices {
-    padding: 75px 6%;
+    padding: 78px 6%;
     background: #f7fff9;
     text-align: center;
 }
@@ -281,17 +210,22 @@ header a {
     gap: 14px;
 }
 .price {
-    padding: 20px 12px;
+    padding: 21px 12px;
     background: #ffffff;
     border: 1px solid #e5eee8;
-    border-radius: 18px;
+    border-radius: 19px;
     box-shadow:
         0 8px 24px
-        rgba(0, 70, 35, 0.07);
-    transition: transform 0.2s ease;
+        rgba(0,70,35,0.07);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 .price:hover {
-    transform: translateY(-4px);
+    transform: translateY(-5px);
+    box-shadow:
+        0 15px 32px
+        rgba(0,70,35,0.12);
 }
 .price .emoji {
     margin-bottom: 7px;
@@ -308,10 +242,10 @@ header a {
     font-weight: 900;
 }
 /* =====================================================
-   HOW IT WORKS
+   HOW SCRAPBIRD WORKS
 ===================================================== */
 .pickup {
-    padding: 75px 6%;
+    padding: 78px 6%;
     background: #ffffff;
     text-align: center;
 }
@@ -327,10 +261,19 @@ header a {
     gap: 18px;
 }
 .pickup-card {
-    padding: 28px 18px;
+    padding: 29px 18px;
     background: #f8fff9;
     border: 1px solid #e3eee7;
     border-radius: 20px;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+.pickup-card:hover {
+    transform: translateY(-5px);
+    box-shadow:
+        0 14px 30px
+        rgba(0,70,35,0.09);
 }
 .pickup-card .icon {
     margin-bottom: 10px;
@@ -349,7 +292,7 @@ header a {
    WHATSAPP CTA
 ===================================================== */
 .cta {
-    padding: 75px 20px;
+    padding: 78px 20px;
     background:
         linear-gradient(
             135deg,
@@ -366,13 +309,14 @@ header a {
 }
 .cta p {
     margin-bottom: 25px;
-    opacity: 0.9;
+    opacity: 0.92;
+    font-size: 16px;
 }
 .whatsapp {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 15px 28px;
+    padding: 16px 30px;
     background: #ffffff;
     border-radius: 50px;
     color: #08783b;
@@ -380,8 +324,13 @@ header a {
     font-size: 17px;
     font-weight: 900;
     box-shadow:
-        0 10px 25px
-        rgba(0, 0, 0, 0.15);
+        0 12px 28px
+        rgba(0,0,0,0.16);
+    transition:
+        transform 0.2s ease;
+}
+.whatsapp:hover {
+    transform: scale(1.05);
 }
 /* =====================================================
    FOOTER
@@ -394,242 +343,111 @@ footer {
     font-size: 13px;
 }
 /* =====================================================
-   ANIMATION
-===================================================== */
-/* Green glow */
-.play .glow {
-    animation:
-        glowIn
-        6s
-        ease-in-out
-        forwards;
-}
-@keyframes glowIn {
-    0% {
-        opacity: 0;
-        transform: scale(0.7);
-    }
-    25% {
-        opacity: 0.8;
-        transform: scale(1);
-    }
-    75% {
-        opacity: 0.5;
-        transform: scale(1.08);
-    }
-    100% {
-        opacity: 0;
-        transform: scale(1.15);
-    }
-}
-/* Falling leaves */
-.play .leaf {
-    animation:
-        fallIn
-        var(--duration)
-        linear
-        var(--delay)
-        forwards;
-}
-@keyframes fallIn {
-    0% {
-        opacity: 0;
-        transform:
-            translate3d(
-                0,
-                -60px,
-                0
-            )
-            rotate(0deg);
-    }
-    10% {
-        opacity: 0.9;
-    }
-    50% {
-        transform:
-            translate3d(
-                var(--move1),
-                45vh,
-                0
-            )
-            rotate(180deg);
-    }
-    100% {
-        opacity: 0;
-        transform:
-            translate3d(
-                var(--move2),
-                110vh,
-                0
-            )
-            rotate(420deg);
-    }
-}
-/* Circle */
-.play .leaf-circle {
-    animation:
-        circleIn
-        2.5s
-        cubic-bezier(.2, .8, .2, 1)
-        0.8s
-        forwards;
-}
-@keyframes circleIn {
-    0% {
-        opacity: 0;
-        transform:
-            translate(-50%, -50%)
-            scale(0.15)
-            rotate(-180deg);
-    }
-    60% {
-        opacity: 0.8;
-        transform:
-            translate(-50%, -50%)
-            scale(1.08)
-            rotate(10deg);
-    }
-    100% {
-        opacity: 0.3;
-        transform:
-            translate(-50%, -50%)
-            scale(1)
-            rotate(0);
-    }
-}
-/* Logo */
-.play .logo-box {
-    animation:
-        logoIn
-        1.5s
-        cubic-bezier(.2, .8, .2, 1)
-        2.5s
-        forwards;
-}
-@keyframes logoIn {
-    0% {
-        opacity: 0;
-        transform:
-            scale(0.25)
-            rotate(-8deg);
-    }
-    55% {
-        opacity: 1;
-        transform:
-            scale(1.06)
-            rotate(2deg);
-    }
-    78% {
-        transform:
-            scale(0.98)
-            rotate(-0.5deg);
-    }
-    100% {
-        opacity: 1;
-        transform:
-            scale(1)
-            rotate(0);
-    }
-}
-/* Scrapbird name */
-.play .brand {
-    animation:
-        brandIn
-        0.8s
-        cubic-bezier(.2, .8, .2, 1)
-        4s
-        forwards;
-}
-@keyframes brandIn {
-    0% {
-        opacity: 0;
-        transform:
-            translateY(20px)
-            scale(0.75);
-    }
-    70% {
-        transform:
-            translateY(0)
-            scale(1.07);
-    }
-    100% {
-        opacity: 1;
-        transform:
-            translateY(0)
-            scale(1);
-    }
-}
-/* Tagline */
-.play .tagline {
-    animation:
-        taglineIn
-        0.7s
-        ease
-        4.45s
-        forwards;
-}
-@keyframes taglineIn {
-    from {
-        opacity: 0;
-        transform:
-            translateY(12px);
-    }
-    to {
-        opacity: 1;
-        transform:
-            translateY(0);
-    }
-}
-/* Features */
-.play .features {
-    animation:
-        featuresIn
-        0.8s
-        ease
-        4.8s
-        forwards;
-}
-@keyframes featuresIn {
-    from {
-        opacity: 0;
-        transform:
-            translateY(15px);
-    }
-    to {
-        opacity: 1;
-        transform:
-            translateY(0);
-    }
-}
-/* =====================================================
    MOBILE
 ===================================================== */
 @media (max-width: 600px) {
+    header {
+        height: 62px;
+        padding: 0 5%;
+    }
+    .header-logo {
+        font-size: 20px;
+    }
+    header a {
+        font-size: 13px;
+        padding: 8px 13px;
+    }
     .hero {
-        min-height: 720px;
+        min-height: auto;
+        padding:
+            92px 12px 48px;
     }
-    .logo-box {
-        width: 90vw;
+    .poster-wrap {
+        width: 96vw;
+        margin-bottom: 17px;
     }
-    .leaf-circle {
-        width: 290px;
-        height: 290px;
+    .poster {
+        max-height: 58vh;
+        border-radius: 18px;
+    }
+    .brand {
+        font-size: 34px;
+        letter-spacing: 4px;
+    }
+    .tagline {
+        font-size: 11px;
+        letter-spacing: 2px;
     }
     .features {
         gap: 7px;
+        margin-top: 22px;
     }
     .feature {
         min-width: 105px;
         padding:
-            10px 11px;
+            10px 9px;
+        font-size: 11px;
+    }
+    .feature strong {
+        font-size: 22px;
+    }
+    .prices {
+        padding:
+            60px 12px;
+    }
+    .price-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+        gap: 10px;
+    }
+    .price {
+        padding:
+            18px 7px;
+    }
+    .price .emoji {
+        font-size: 27px;
+    }
+    .price h3 {
+        font-size: 14px;
+    }
+    .amount {
+        font-size: 20px;
+    }
+    .pickup {
+        padding:
+            60px 12px;
+    }
+    .pickup-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+        gap: 10px;
+    }
+    .pickup-card {
+        padding:
+            22px 10px;
+    }
+    .pickup-card .icon {
+        font-size: 34px;
+    }
+    .pickup-card h3 {
+        font-size: 15px;
+    }
+    .pickup-card p {
         font-size: 12px;
     }
-    .recyclables-section {
+    .cta {
         padding:
-            25px 12px 45px;
+            60px 18px;
     }
-    .recyclables-poster {
-        border-radius: 16px;
+}
+/* =====================================================
+   ACCESSIBILITY
+===================================================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
     }
 }
 </style>
@@ -652,87 +470,20 @@ footer {
 <section
     class="hero"
     id="home">
-    <div class="glow"></div>
-    <!-- FALLING LEAVES -->
-    <div class="leaf"
-         style="
-         left:4%;
-         --move1:80px;
-         --move2:120px;
-         --duration:5s;
-         --delay:0s;">
-    </div>
-    <div class="leaf"
-         style="
-         left:16%;
-         --move1:-70px;
-         --move2:-100px;
-         --duration:5.5s;
-         --delay:.3s;">
-    </div>
-    <div class="leaf"
-         style="
-         left:29%;
-         --move1:90px;
-         --move2:60px;
-         --duration:5.2s;
-         --delay:.7s;">
-    </div>
-    <div class="leaf"
-         style="
-         left:43%;
-         --move1:-80px;
-         --move2:-40px;
-         --duration:5.6s;
-         --delay:.15s;">
-    </div>
-    <div class="leaf"
-         style="
-         left:58%;
-         --move1:70px;
-         --move2:110px;
-         --duration:5.1s;
-         --delay:.9s;">
-    </div>
-    <div class="leaf"
-         style="
-         left:72%;
-         --move1:-90px;
-         --move2:-120px;
-         --duration:5.4s;
-         --delay:.5s;">
-    </div>
-    <div class="leaf"
-         style="
-         left:85%;
-         --move1:60px;
-         --move2:90px;
-         --duration:5.2s;
-         --delay:1s;">
-    </div>
-    <div class="leaf"
-         style="
-         left:95%;
-         --move1:-50px;
-         --move2:-80px;
-         --duration:5.7s;
-         --delay:.25s;">
-    </div>
-    <!-- CIRCLE -->
-    <div class="leaf-circle"></div>
-    <!-- YOUR EXISTING SCRAPBIRD LOGO -->
-    <div class="logo-box">
+    <!-- YOUR SCRAP YOUR MONEY POSTER -->
+    <div class="poster-wrap">
         <img
-            src="scrapbird-logo.png"
-            alt="Scrapbird - Your Scrap Your Money">
+            src="your-scrap-your-money.png"
+            class="poster"
+            alt="Your Scrap Your Money - Scrapbird">
     </div>
     <!-- SCRAPBIRD -->
     <div class="brand">
         SCRAP<span>BIRD</span>
     </div>
-    <!-- YOUR SCRAP YOUR MONEY -->
+    <!-- TAGLINE -->
     <div class="tagline">
-        YOUR SCRAP • YOUR MONEY
+        DOORSTEP SCRAP PICKUP • MADANAPALLE
     </div>
     <!-- FEATURES -->
     <div class="features">
@@ -755,27 +506,13 @@ footer {
     </div>
 </section>
 <!-- =====================================================
-     RECYCLABLES POSTER
-===================================================== -->
-<section class="recyclables-section">
-    <a
-        href="#prices"
-        class="poster-link"
-        aria-label="See full Scrapbird price list">
-        <img
-            src="recyclables-poster.jpg"
-            class="recyclables-poster"
-            alt="Scrapbird recyclable materials and full price list">
-    </a>
-</section>
-<!-- =====================================================
-     SCRAP PRICES
+     PRICES
 ===================================================== -->
 <section
     class="prices"
     id="prices">
     <h2 class="section-title">
-        Scrap Prices
+        ♻️ Scrap Prices
     </h2>
     <p class="section-subtitle">
         Clear rates. Fair weighing. Easy pickup.
@@ -783,98 +520,66 @@ footer {
     <div class="price-grid">
         <!-- IRON -->
         <div class="price">
-            <div class="emoji">
-                🔩
-            </div>
-            <h3>
-                Iron
-            </h3>
+            <div class="emoji">🔩</div>
+            <h3>Iron</h3>
             <div class="amount">
                 ₹25/kg
             </div>
         </div>
         <!-- ALUMINIUM -->
         <div class="price">
-            <div class="emoji">
-                🥫
-            </div>
-            <h3>
-                Aluminium
-            </h3>
+            <div class="emoji">🥫</div>
+            <h3>Aluminium</h3>
             <div class="amount">
-                ₹173/kg
+                ₹190/kg
             </div>
         </div>
         <!-- COPPER -->
         <div class="price">
-            <div class="emoji">
-                🔌
-            </div>
-            <h3>
-                Copper
-            </h3>
+            <div class="emoji">🔌</div>
+            <h3>Copper</h3>
             <div class="amount">
                 ₹1,200/kg
             </div>
         </div>
         <!-- BRASS -->
         <div class="price">
-            <div class="emoji">
-                🚰
-            </div>
-            <h3>
-                Brass
-            </h3>
+            <div class="emoji">🚰</div>
+            <h3>Brass</h3>
             <div class="amount">
-                ₹680/kg
+                ₹730/kg
             </div>
         </div>
         <!-- CARDBOARD -->
         <div class="price">
-            <div class="emoji">
-                📦
-            </div>
-            <h3>
-                Cardboard
-            </h3>
+            <div class="emoji">📦</div>
+            <h3>Cardboard</h3>
             <div class="amount">
-                ₹11/kg
+                ₹8/kg
             </div>
         </div>
         <!-- PLASTIC -->
         <div class="price">
-            <div class="emoji">
-                🧴
-            </div>
-            <h3>
-                Plastic
-            </h3>
+            <div class="emoji">🧴</div>
+            <h3>Plastic</h3>
             <div class="amount">
-                ₹15/kg
+                ₹12/kg
             </div>
         </div>
         <!-- BOOKS -->
         <div class="price">
-            <div class="emoji">
-                📚
-            </div>
-            <h3>
-                Books
-            </h3>
+            <div class="emoji">📚</div>
+            <h3>Books</h3>
             <div class="amount">
-                ₹15/kg
+                ₹14/kg
             </div>
         </div>
         <!-- NEWSPAPER -->
         <div class="price">
-            <div class="emoji">
-                📰
-            </div>
-            <h3>
-                Newspaper
-            </h3>
+            <div class="emoji">📰</div>
+            <h3>Newspaper</h3>
             <div class="amount">
-                ₹17/kg
+                ₹16/kg
             </div>
         </div>
     </div>
@@ -965,39 +670,5 @@ footer {
     © 2026 Scrapbird ·
     Your Scrap. Your Money. ♻️
 </footer>
-<script>
-/* =====================================================
-   CLEAN REPLAY ENGINE
-===================================================== */
-const hero =
-    document.querySelector(".hero");
-function playAnimation() {
-    /* Remove old animation */
-    hero.classList.remove("play");
-    /*
-       Force the browser to completely
-       reset the CSS animation.
-    */
-    void hero.offsetWidth;
-    /* Start a fresh animation */
-    hero.classList.add("play");
-}
-/* Start immediately */
-playAnimation();
-/*
-   Replay every 8.5 seconds.
-*/
-setInterval(
-    playAnimation,
-    8500
-);
-/*
-   Tap the animated hero to replay.
-*/
-hero.addEventListener(
-    "click",
-    playAnimation
-);
-</script>
 </body>
 </html>

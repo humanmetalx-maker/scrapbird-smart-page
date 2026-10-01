@@ -1,1124 +1,1003 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<meta name="description" content="Scrapbird Madanapalle - recyclable scrap pickup and transparent scrap rates.">
-
-<title>Scrapbird | Recyclables We Pick</title>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description"
+content="Scrapbird Madanapalle - Your Scrap. Your Money. Doorstep scrap pickup with transparent rates.">
+<title>Scrapbird | Your Scrap. Your Money.</title>
 <style>
-
-:root{
-  --green:#08783b;
-  --green2:#19c768;
-  --dark:#053b23;
-  --light:#effbea;
-  --text:#111;
-  --muted:#666;
+/* =====================================================
+   RESET
+===================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-
-*{
-  box-sizing:border-box;
+html {
+    scroll-behavior: smooth;
 }
-
-html{
-  scroll-behavior:smooth;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #123524;
+    overflow-x: hidden;
 }
-
-body{
-  margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  color:var(--text);
-  background:#fff;
+/* =====================================================
+   HEADER
+===================================================== */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6%;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid #eeeeee;
+    z-index: 1000;
 }
-
-.container{
-  width:min(1000px,92%);
-  margin:auto;
+.header-logo {
+    color: #08783b;
+    font-size: 23px;
+    font-weight: 900;
+    letter-spacing: 1px;
 }
-
-
-/* HEADER */
-
-header{
-  background:#fff;
-  border-bottom:1px solid #eeeeee;
-  padding:13px 0;
-  position:sticky;
-  top:0;
-  z-index:20;
+.header-logo span {
+    color: #064d29;
 }
-
-.nav{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+header a {
+    color: #08783b;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 800;
 }
-
-.logo{
-  width:140px;
-  max-height:48px;
-  object-fit:contain;
+/* =====================================================
+   HERO
+===================================================== */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    padding: 95px 15px 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            circle at center,
+            #f2fff5 0%,
+            #ffffff 68%
+        );
 }
-
-.top-whatsapp{
-  background:var(--green);
-  color:#fff;
-  text-decoration:none;
-  padding:10px 14px;
-  border-radius:10px;
-  font-size:12px;
-  font-weight:800;
+/* =====================================================
+   SOFT GREEN GLOW
+===================================================== */
+.glow {
+    position: absolute;
+    width: 440px;
+    height: 440px;
+    border-radius: 50%;
+    background: rgba(50, 190, 75, 0.08);
+    filter: blur(65px);
+    opacity: 0;
+    z-index: 0;
 }
-
-
-/* HERO */
-
-.hero{
-  padding:30px 0 45px;
-  text-align:center;
-  background:
-    linear-gradient(
-      180deg,
-      #fff 0%,
-      #fff 70%,
-      #f0ffed 100%
-    );
+/* =====================================================
+   FALLING LEAVES
+===================================================== */
+.leaf {
+    position: absolute;
+    top: -70px;
+    width: 21px;
+    height: 34px;
+    border-radius: 100% 0 100% 0;
+    background:
+        linear-gradient(
+            135deg,
+            #9be238,
+            #08783b
+        );
+    opacity: 0;
+    z-index: 3;
 }
-
-.hero-title{
-  margin:0;
-  font-size:clamp(42px,8vw,78px);
-  line-height:.95;
-  letter-spacing:-4px;
-  font-weight:900;
+.leaf::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 25px;
+    left: 10px;
+    top: 4px;
+    background: rgba(255, 255, 255, 0.75);
+    transform: rotate(-35deg);
 }
-
-.hero-title .green{
-  color:var(--green);
+/* =====================================================
+   CIRCULAR REVEAL
+===================================================== */
+.leaf-circle {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 350px;
+    height: 350px;
+    border: 2px solid rgba(8, 120, 59, 0.13);
+    border-radius: 50%;
+    opacity: 0;
+    z-index: 1;
 }
-
-.hero-subtitle{
-  margin:20px auto 0;
-  max-width:850px;
-  color:#686868;
-  font-size:clamp(17px,3vw,29px);
-  line-height:1.35;
+/* =====================================================
+   SCRAPBIRD LOGO
+===================================================== */
+.logo-box {
+    position: relative;
+    width: min(470px, 88vw);
+    z-index: 5;
+    opacity: 0;
 }
-
-
-/* SCRAP COLLAGE */
-
-.scrap-collage{
-  position:relative;
-  max-width:850px;
-  height:530px;
-  margin:40px auto 25px;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(213,250,220,.42) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      rgba(213,250,220,.42) 1px,
-      transparent 1px
-    );
-
-  background-size:115px 115px;
-  border-radius:28px;
+.logo-box img {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter:
+        drop-shadow(
+            0 15px 28px
+            rgba(0, 70, 35, 0.13)
+        );
 }
-
-
-/* SCRAP ITEMS */
-
-.scrap-item{
-  position:absolute;
-  text-align:center;
-  z-index:2;
+/* =====================================================
+   SCRAPBIRD NAME
+===================================================== */
+.brand {
+    position: relative;
+    z-index: 10;
+    margin-top: 5px;
+    color: #08783b;
+    font-size:
+        clamp(30px, 7vw, 55px);
+    font-weight: 900;
+    letter-spacing:
+        clamp(3px, 1vw, 8px);
+    opacity: 0;
 }
-
-.scrap-emoji{
-  font-size:clamp(48px,7vw,78px);
-  line-height:1;
-  filter:drop-shadow(0 7px 7px rgba(0,0,0,.12));
+.brand span {
+    color: #064d29;
 }
-
-.scrap-name{
-  margin-top:8px;
-  color:#075d32;
-  font-size:16px;
-  font-weight:800;
+/* =====================================================
+   TAGLINE
+===================================================== */
+.tagline {
+    position: relative;
+    z-index: 10;
+    margin-top: 5px;
+    color: #65746b;
+    font-size:
+        clamp(11px, 2.5vw, 16px);
+    letter-spacing:
+        clamp(2px, 0.6vw, 4px);
+    opacity: 0;
 }
-
-
-/* POSITIONS */
-
-.paper{
-  left:5%;
-  top:43%;
+/* =====================================================
+   FEATURES
+===================================================== */
+.features {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 28px;
+    opacity: 0;
 }
-
-.plastic{
-  left:21%;
-  top:16%;
+.feature {
+    min-width: 115px;
+    padding: 12px 16px;
+    background: #ffffff;
+    border: 1px solid #e2eee6;
+    border-radius: 18px;
+    box-shadow:
+        0 7px 22px
+        rgba(0, 80, 40, 0.07);
+    color: #08783b;
+    font-size: 13px;
+    font-weight: 800;
 }
-
-.aluminium{
-  left:43%;
-  top:7%;
+.feature strong {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 25px;
 }
-
-.iron{
-  right:18%;
-  top:22%;
+/* =====================================================
+   RECYCLABLES POSTER
+===================================================== */
+.recyclables-section {
+    padding: 35px 14px 65px;
+    background: #ffffff;
+    text-align: center;
 }
-
-.copper{
-  right:3%;
-  top:45%;
+.poster-link {
+    display: block;
+    width: min(900px, 100%);
+    margin: auto;
+    text-decoration: none;
+    transition: transform 0.25s ease;
 }
-
-.brass{
-  right:18%;
-  bottom:5%;
+.recyclables-poster {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 22px;
+    box-shadow:
+        0 15px 45px
+        rgba(0, 80, 40, 0.12);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
-
-.cardboard{
-  left:39%;
-  bottom:3%;
+.poster-link:hover {
+    transform: translateY(-4px);
 }
-
-.books{
-  left:8%;
-  bottom:5%;
+.poster-link:hover .recyclables-poster {
+    box-shadow:
+        0 22px 55px
+        rgba(0, 80, 40, 0.18);
 }
-
-
-/* ARROWS */
-
-.arrow{
-  position:absolute;
-  color:var(--green);
-  font-size:36px;
-  font-weight:900;
-  z-index:3;
+/* =====================================================
+   PRICE SECTION
+===================================================== */
+.prices {
+    padding: 75px 6%;
+    background: #f7fff9;
+    text-align: center;
 }
-
-.arrow-paper{
-  left:17%;
-  top:47%;
-  transform:rotate(-25deg);
+.section-title {
+    margin-bottom: 8px;
+    color: #064d29;
+    font-size:
+        clamp(28px, 6vw, 44px);
+    font-weight: 900;
 }
-
-.arrow-plastic{
-  left:29%;
-  top:25%;
-  transform:rotate(20deg);
+.section-subtitle {
+    margin-bottom: 32px;
+    color: #66756c;
+    font-size: 15px;
 }
-
-.arrow-aluminium{
-  left:51%;
-  top:20%;
-  transform:rotate(-10deg);
+.price-grid {
+    max-width: 1000px;
+    margin: auto;
+    display: grid;
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(135px, 1fr)
+        );
+    gap: 14px;
 }
-
-.arrow-iron{
-  right:27%;
-  top:33%;
-  transform:rotate(-20deg);
+.price {
+    padding: 20px 12px;
+    background: #ffffff;
+    border: 1px solid #e5eee8;
+    border-radius: 18px;
+    box-shadow:
+        0 8px 24px
+        rgba(0, 70, 35, 0.07);
+    transition: transform 0.2s ease;
 }
-
-.arrow-copper{
-  right:14%;
-  top:52%;
-  transform:rotate(25deg);
+.price:hover {
+    transform: translateY(-4px);
 }
-
-.arrow-brass{
-  right:28%;
-  bottom:12%;
-  transform:rotate(-15deg);
+.price .emoji {
+    margin-bottom: 7px;
+    font-size: 30px;
 }
-
-.arrow-cardboard{
-  left:51%;
-  bottom:13%;
+.price h3 {
+    margin-bottom: 6px;
+    color: #123524;
+    font-size: 16px;
 }
-
-.arrow-books{
-  left:23%;
-  bottom:13%;
-  transform:rotate(-20deg);
+.amount {
+    color: #08783b;
+    font-size: 23px;
+    font-weight: 900;
 }
-
-
-/* PRICE BUTTON */
-
-.price-button-wrap{
-  margin-top:20px;
+/* =====================================================
+   HOW IT WORKS
+===================================================== */
+.pickup {
+    padding: 75px 6%;
+    background: #ffffff;
+    text-align: center;
 }
-
-.price-button{
-  border:0;
-  cursor:pointer;
-
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:14px;
-
-  min-width:310px;
-
-  padding:18px 28px;
-
-  border-radius:18px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #08783b,
-      #19c768
-    );
-
-  color:#fff;
-
-  font-size:20px;
-  font-weight:900;
-
-  box-shadow:
-    0 12px 30px rgba(8,120,59,.25);
-
-  transition:.2s;
+.pickup-grid {
+    max-width: 950px;
+    margin: 35px auto 0;
+    display: grid;
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(180px, 1fr)
+        );
+    gap: 18px;
 }
-
-.price-button:hover{
-  transform:translateY(-3px);
+.pickup-card {
+    padding: 28px 18px;
+    background: #f8fff9;
+    border: 1px solid #e3eee7;
+    border-radius: 20px;
 }
-
-.price-icon{
-  width:42px;
-  height:42px;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  border-radius:50%;
-
-  background:rgba(255,255,255,.2);
-
-  font-size:22px;
+.pickup-card .icon {
+    margin-bottom: 10px;
+    font-size: 40px;
 }
-
-.price-arrow{
-  font-size:28px;
+.pickup-card h3 {
+    margin-bottom: 8px;
+    color: #08783b;
 }
-
-
-/* PRICE SECTION */
-
-#prices{
-  display:none;
-  padding:60px 0;
-  background:#f5fff2;
+.pickup-card p {
+    color: #66746b;
+    font-size: 14px;
+    line-height: 1.5;
 }
-
-#prices.show{
-  display:block;
-  animation:reveal .5s ease;
+/* =====================================================
+   WHATSAPP CTA
+===================================================== */
+.cta {
+    padding: 75px 20px;
+    background:
+        linear-gradient(
+            135deg,
+            #064d29,
+            #08783b
+        );
+    color: #ffffff;
+    text-align: center;
 }
-
-@keyframes reveal{
-
-  from{
-    opacity:0;
-    transform:translateY(-20px);
-  }
-
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-
+.cta h2 {
+    margin-bottom: 10px;
+    font-size:
+        clamp(30px, 7vw, 48px);
 }
-
-.section-title{
-  text-align:center;
-  margin-bottom:28px;
+.cta p {
+    margin-bottom: 25px;
+    opacity: 0.9;
 }
-
-.section-title h2{
-  margin:0;
-  font-size:40px;
-  color:var(--dark);
+.whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 28px;
+    background: #ffffff;
+    border-radius: 50px;
+    color: #08783b;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 900;
+    box-shadow:
+        0 10px 25px
+        rgba(0, 0, 0, 0.15);
 }
-
-.section-title p{
-  margin:8px 0 0;
-  color:var(--muted);
+/* =====================================================
+   FOOTER
+===================================================== */
+footer {
+    padding: 22px;
+    background: #04351d;
+    color: #b8d0c0;
+    text-align: center;
+    font-size: 13px;
 }
-
-
-/* PRICE CARDS */
-
-.price-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:14px;
+/* =====================================================
+   ANIMATION
+===================================================== */
+/* Green glow */
+.play .glow {
+    animation:
+        glowIn
+        6s
+        ease-in-out
+        forwards;
 }
-
-.price-card{
-  display:flex;
-  align-items:center;
-  gap:14px;
-
-  background:#fff;
-
-  border:1px solid #dcebdd;
-
-  border-radius:18px;
-
-  padding:16px;
-
-  box-shadow:0 7px 20px rgba(0,0,0,.05);
+@keyframes glowIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+    25% {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+    75% {
+        opacity: 0.5;
+        transform: scale(1.08);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.15);
+    }
 }
-
-.price-emoji{
-  width:55px;
-  height:55px;
-
-  flex-shrink:0;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  border-radius:15px;
-
-  background:var(--light);
-
-  font-size:30px;
+/* Falling leaves */
+.play .leaf {
+    animation:
+        fallIn
+        var(--duration)
+        linear
+        var(--delay)
+        forwards;
 }
-
-.price-info{
-  flex:1;
+@keyframes fallIn {
+    0% {
+        opacity: 0;
+        transform:
+            translate3d(
+                0,
+                -60px,
+                0
+            )
+            rotate(0deg);
+    }
+    10% {
+        opacity: 0.9;
+    }
+    50% {
+        transform:
+            translate3d(
+                var(--move1),
+                45vh,
+                0
+            )
+            rotate(180deg);
+    }
+    100% {
+        opacity: 0;
+        transform:
+            translate3d(
+                var(--move2),
+                110vh,
+                0
+            )
+            rotate(420deg);
+    }
 }
-
-.price-info h3{
-  margin:0 0 4px;
-  font-size:18px;
+/* Circle */
+.play .leaf-circle {
+    animation:
+        circleIn
+        2.5s
+        cubic-bezier(.2, .8, .2, 1)
+        0.8s
+        forwards;
 }
-
-.price-info p{
-  margin:0;
-  color:#888;
-  font-size:11px;
+@keyframes circleIn {
+    0% {
+        opacity: 0;
+        transform:
+            translate(-50%, -50%)
+            scale(0.15)
+            rotate(-180deg);
+    }
+    60% {
+        opacity: 0.8;
+        transform:
+            translate(-50%, -50%)
+            scale(1.08)
+            rotate(10deg);
+    }
+    100% {
+        opacity: 0.3;
+        transform:
+            translate(-50%, -50%)
+            scale(1)
+            rotate(0);
+    }
 }
-
-.price-value{
-  color:var(--green);
-  font-size:19px;
-  font-weight:900;
-  white-space:nowrap;
+/* Logo */
+.play .logo-box {
+    animation:
+        logoIn
+        1.5s
+        cubic-bezier(.2, .8, .2, 1)
+        2.5s
+        forwards;
 }
-
-
-/* WHATSAPP */
-
-.whatsapp{
-  padding:50px 0;
-  text-align:center;
+@keyframes logoIn {
+    0% {
+        opacity: 0;
+        transform:
+            scale(0.25)
+            rotate(-8deg);
+    }
+    55% {
+        opacity: 1;
+        transform:
+            scale(1.06)
+            rotate(2deg);
+    }
+    78% {
+        transform:
+            scale(0.98)
+            rotate(-0.5deg);
+    }
+    100% {
+        opacity: 1;
+        transform:
+            scale(1)
+            rotate(0);
+    }
 }
-
-.whatsapp-box{
-  padding:35px 20px;
-  border-radius:25px;
-
-  color:#fff;
-
-  background:
-    linear-gradient(
-      135deg,
-      #053b23,
-      #08783b
-    );
+/* Scrapbird name */
+.play .brand {
+    animation:
+        brandIn
+        0.8s
+        cubic-bezier(.2, .8, .2, 1)
+        4s
+        forwards;
 }
-
-.whatsapp-box h2{
-  margin:0 0 8px;
-  font-size:32px;
+@keyframes brandIn {
+    0% {
+        opacity: 0;
+        transform:
+            translateY(20px)
+            scale(0.75);
+    }
+    70% {
+        transform:
+            translateY(0)
+            scale(1.07);
+    }
+    100% {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
 }
-
-.whatsapp-box p{
-  margin:0 0 22px;
-  color:#d8f5df;
-  font-size:14px;
+/* Tagline */
+.play .tagline {
+    animation:
+        taglineIn
+        0.7s
+        ease
+        4.45s
+        forwards;
 }
-
-.whatsapp-button{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:9px;
-
-  padding:15px 24px;
-
-  border-radius:14px;
-
-  background:#19d26b;
-
-  color:#06351f;
-
-  text-decoration:none;
-
-  font-size:16px;
-  font-weight:900;
+@keyframes taglineIn {
+    from {
+        opacity: 0;
+        transform:
+            translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform:
+            translateY(0);
+    }
 }
-
-
-/* NOTE */
-
-.note{
-  max-width:650px;
-  margin:20px auto 0;
-
-  text-align:center;
-
-  color:#777;
-
-  font-size:11px;
-  line-height:1.6;
+/* Features */
+.play .features {
+    animation:
+        featuresIn
+        0.8s
+        ease
+        4.8s
+        forwards;
 }
-
-
-/* FOOTER */
-
-footer{
-  padding:28px 15px 35px;
-
-  text-align:center;
-
-  color:#888;
-
-  font-size:11px;
-
-  border-top:1px solid #eee;
+@keyframes featuresIn {
+    from {
+        opacity: 0;
+        transform:
+            translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform:
+            translateY(0);
+    }
 }
-
-
-/* MOBILE */
-
-@media(max-width:700px){
-
-  .logo{
-    width:120px;
-  }
-
-  .top-whatsapp{
-    font-size:10px;
-    padding:9px 11px;
-  }
-
-  .hero{
-    padding-top:25px;
-  }
-
-  .hero-title{
-    letter-spacing:-2px;
-  }
-
-  .hero-subtitle{
-    font-size:17px;
-  }
-
-  .scrap-collage{
-    height:430px;
-    margin-top:30px;
-    background-size:85px 85px;
-  }
-
-  .scrap-emoji{
-    font-size:42px;
-  }
-
-  .scrap-name{
-    font-size:11px;
-  }
-
-  .arrow{
-    font-size:22px;
-  }
-
-  .price-button{
-    width:92%;
-    min-width:0;
-    font-size:17px;
-    padding:16px 18px;
-  }
-
-  #prices{
-    padding:45px 0;
-  }
-
-  .section-title h2{
-    font-size:30px;
-  }
-
-  .price-grid{
-    grid-template-columns:1fr;
-  }
-
+/* =====================================================
+   MOBILE
+===================================================== */
+@media (max-width: 600px) {
+    .hero {
+        min-height: 720px;
+    }
+    .logo-box {
+        width: 90vw;
+    }
+    .leaf-circle {
+        width: 290px;
+        height: 290px;
+    }
+    .features {
+        gap: 7px;
+    }
+    .feature {
+        min-width: 105px;
+        padding:
+            10px 11px;
+        font-size: 12px;
+    }
+    .recyclables-section {
+        padding:
+            25px 12px 45px;
+    }
+    .recyclables-poster {
+        border-radius: 16px;
+    }
 }
-
-
-/* SMALL PHONE */
-
-@media(max-width:380px){
-
-  .scrap-collage{
-    height:390px;
-  }
-
-  .scrap-emoji{
-    font-size:35px;
-  }
-
-  .scrap-name{
-    font-size:9px;
-  }
-
-  .arrow{
-    display:none;
-  }
-
-  .price-card{
-    padding:13px;
-  }
-
-  .price-emoji{
-    width:48px;
-    height:48px;
-    font-size:26px;
-  }
-
-  .price-value{
-    font-size:16px;
-  }
-
-}
-
 </style>
 </head>
-
-
 <body>
-
-
-<!-- HEADER -->
-
+<!-- =====================================================
+     HEADER
+===================================================== -->
 <header>
-
-  <div class="container nav">
-
-    <a href="#">
-      <img
-        class="logo"
-        src="scrapbird-logo.png"
-        alt="Scrapbird">
+    <div class="header-logo">
+        SCRAP<span>BIRD</span>
+    </div>
+    <a href="#prices">
+        Rates
     </a>
-
-    <a
-      class="top-whatsapp"
-      href="https://wa.me/919030755506?text=Hi%20Scrapbird%2C%20I%20want%20to%20book%20a%20scrap%20pickup."
-      target="_blank">
-
-      WhatsApp Pickup
-
-    </a>
-
-  </div>
-
 </header>
-
-
-
-<!-- HERO -->
-
-<section class="hero">
-
-  <div class="container">
-
-    <h1 class="hero-title">
-      Recyclables
-      <span class="green">we pick</span>
-    </h1>
-
-
-    <div class="hero-subtitle">
-
-      Paper | Plastic | Metals | E-Waste | Appliances
-
-      <br>
-
-      & More
-
+<!-- =====================================================
+     HERO
+===================================================== -->
+<section
+    class="hero"
+    id="home">
+    <div class="glow"></div>
+    <!-- FALLING LEAVES -->
+    <div class="leaf"
+         style="
+         left:4%;
+         --move1:80px;
+         --move2:120px;
+         --duration:5s;
+         --delay:0s;">
     </div>
-
-
-    <!-- SCRAP EMOJIS -->
-
-    <div class="scrap-collage">
-
-
-      <div class="scrap-item paper">
-
-        <div class="scrap-emoji">📰</div>
-
-        <div class="scrap-name">
-          Paper
-        </div>
-
-      </div>
-
-
-      <div class="scrap-item plastic">
-
-        <div class="scrap-emoji">🧴</div>
-
-        <div class="scrap-name">
-          Plastic
-        </div>
-
-      </div>
-
-
-      <div class="scrap-item aluminium">
-
-        <div class="scrap-emoji">🥫</div>
-
-        <div class="scrap-name">
-          Aluminium
-        </div>
-
-      </div>
-
-
-      <div class="scrap-item iron">
-
-        <div class="scrap-emoji">🧲</div>
-
-        <div class="scrap-name">
-          Iron
-        </div>
-
-      </div>
-
-
-      <div class="scrap-item copper">
-
-        <div class="scrap-emoji">🔌</div>
-
-        <div class="scrap-name">
-          Copper
-        </div>
-
-      </div>
-
-
-      <div class="scrap-item brass">
-
-        <div class="scrap-emoji">🚰</div>
-
-        <div class="scrap-name">
-          Brass
-        </div>
-
-      </div>
-
-
-      <div class="scrap-item cardboard">
-
-        <div class="scrap-emoji">📦</div>
-
-        <div class="scrap-name">
-          Cardboard
-        </div>
-
-      </div>
-
-
-      <div class="scrap-item books">
-
-        <div class="scrap-emoji">📚</div>
-
-        <div class="scrap-name">
-          Books
-        </div>
-
-      </div>
-
-
-      <!-- ARROWS -->
-
-      <div class="arrow arrow-paper">↙</div>
-
-      <div class="arrow arrow-plastic">↘</div>
-
-      <div class="arrow arrow-aluminium">↙</div>
-
-      <div class="arrow arrow-iron">↙</div>
-
-      <div class="arrow arrow-copper">↘</div>
-
-      <div class="arrow arrow-brass">↖</div>
-
-      <div class="arrow arrow-cardboard">↑</div>
-
-      <div class="arrow arrow-books">↗</div>
-
+    <div class="leaf"
+         style="
+         left:16%;
+         --move1:-70px;
+         --move2:-100px;
+         --duration:5.5s;
+         --delay:.3s;">
     </div>
-
-
-    <!-- SEE PRICE LIST -->
-
-    <div class="price-button-wrap">
-
-      <button
-        class="price-button"
-        onclick="showPrices()">
-
-        <span class="price-icon">
-          📋
-        </span>
-
-        <span id="priceButtonText">
-          See Full Price List
-        </span>
-
-        <span
-          class="price-arrow"
-          id="priceArrow">
-
-          ↓
-
-        </span>
-
-      </button>
-
+    <div class="leaf"
+         style="
+         left:29%;
+         --move1:90px;
+         --move2:60px;
+         --duration:5.2s;
+         --delay:.7s;">
     </div>
-
-  </div>
-
+    <div class="leaf"
+         style="
+         left:43%;
+         --move1:-80px;
+         --move2:-40px;
+         --duration:5.6s;
+         --delay:.15s;">
+    </div>
+    <div class="leaf"
+         style="
+         left:58%;
+         --move1:70px;
+         --move2:110px;
+         --duration:5.1s;
+         --delay:.9s;">
+    </div>
+    <div class="leaf"
+         style="
+         left:72%;
+         --move1:-90px;
+         --move2:-120px;
+         --duration:5.4s;
+         --delay:.5s;">
+    </div>
+    <div class="leaf"
+         style="
+         left:85%;
+         --move1:60px;
+         --move2:90px;
+         --duration:5.2s;
+         --delay:1s;">
+    </div>
+    <div class="leaf"
+         style="
+         left:95%;
+         --move1:-50px;
+         --move2:-80px;
+         --duration:5.7s;
+         --delay:.25s;">
+    </div>
+    <!-- CIRCLE -->
+    <div class="leaf-circle"></div>
+    <!-- YOUR EXISTING SCRAPBIRD LOGO -->
+    <div class="logo-box">
+        <img
+            src="scrapbird-logo.png"
+            alt="Scrapbird - Your Scrap Your Money">
+    </div>
+    <!-- SCRAPBIRD -->
+    <div class="brand">
+        SCRAP<span>BIRD</span>
+    </div>
+    <!-- YOUR SCRAP YOUR MONEY -->
+    <div class="tagline">
+        YOUR SCRAP • YOUR MONEY
+    </div>
+    <!-- FEATURES -->
+    <div class="features">
+        <div class="feature">
+            <strong>🚚</strong>
+            Doorstep Pickup
+        </div>
+        <div class="feature">
+            <strong>⚖️</strong>
+            Weighing Scale
+        </div>
+        <div class="feature">
+            <strong>💵</strong>
+            Cash
+        </div>
+        <div class="feature">
+            <strong>♻️</strong>
+            Recycling
+        </div>
+    </div>
 </section>
-
-
-
-<!-- PRICES -->
-
-<section id="prices">
-
-  <div class="container">
-
-    <div class="section-title">
-
-      <h2>
-        Scrapbird Rates
-      </h2>
-
-      <p>
-        Today's rates • Madanapalle
-      </p>
-
-    </div>
-
-
-    <div class="price-grid">
-
-
-      <article class="price-card">
-
-        <div class="price-emoji">
-          🧲
-        </div>
-
-        <div class="price-info">
-
-          <h3>Iron</h3>
-
-          <p>Metal scrap</p>
-
-        </div>
-
-        <div class="price-value">
-          ₹25/kg
-        </div>
-
-      </article>
-
-
-      <article class="price-card">
-
-        <div class="price-emoji">
-          🥫
-        </div>
-
-        <div class="price-info">
-
-          <h3>Aluminium</h3>
-
-          <p>Cans & utensils</p>
-
-        </div>
-
-        <div class="price-value">
-          ₹180/kg
-        </div>
-
-      </article>
-
-
-      <article class="price-card">
-
-        <div class="price-emoji">
-          🔌
-        </div>
-
-        <div class="price-info">
-
-          <h3>Copper</h3>
-
-          <p>Copper wires</p>
-
-        </div>
-
-        <div class="price-value">
-          ₹1,150/kg
-        </div>
-
-      </article>
-
-
-      <article class="price-card">
-
-        <div class="price-emoji">
-          🚰
-        </div>
-
-        <div class="price-info">
-
-          <h3>Brass</h3>
-
-          <p>Taps & fittings</p>
-
-        </div>
-
-        <div class="price-value">
-          ₹710/kg
-        </div>
-
-      </article>
-
-
-      <article class="price-card">
-
-        <div class="price-emoji">
-          📦
-        </div>
-
-        <div class="price-info">
-
-          <h3>Cardboard</h3>
-
-          <p>Boxes & cartons</p>
-
-        </div>
-
-        <div class="price-value">
-          ₹8/kg
-        </div>
-
-      </article>
-
-
-      <article class="price-card">
-
-        <div class="price-emoji">
-          🧴
-        </div>
-
-        <div class="price-info">
-
-          <h3>Plastic</h3>
-
-          <p>Plastic scrap</p>
-
-        </div>
-
-        <div class="price-value">
-          ₹10.5/kg
-        </div>
-
-      </article>
-
-
-      <article class="price-card">
-
-        <div class="price-emoji">
-          📚
-        </div>
-
-        <div class="price-info">
-
-          <h3>Books</h3>
-
-          <p>Old books & notebooks</p>
-
-        </div>
-
-        <div class="price-value">
-          ₹12/kg
-        </div>
-
-      </article>
-
-
-      <article class="price-card">
-
-        <div class="price-emoji">
-          📰
-        </div>
-
-        <div class="price-info">
-
-          <h3>Newspaper</h3>
-
-          <p>Newspapers & magazines</p>
-
-        </div>
-
-        <div class="price-value">
-          ₹13/kg
-        </div>
-
-      </article>
-
-    </div>
-
-
-    <p class="note">
-
-      Rates may change according to market price
-      and material quality. Final price is confirmed
-      after weighing.
-
+<!-- =====================================================
+     RECYCLABLES POSTER
+===================================================== -->
+<section class="recyclables-section">
+    <a
+        href="#prices"
+        class="poster-link"
+        aria-label="See full Scrapbird price list">
+        <img
+            src="recyclables-poster.jpg"
+            class="recyclables-poster"
+            alt="Scrapbird recyclable materials and full price list">
+    </a>
+</section>
+<!-- =====================================================
+     SCRAP PRICES
+===================================================== -->
+<section
+    class="prices"
+    id="prices">
+    <h2 class="section-title">
+        Scrap Prices
+    </h2>
+    <p class="section-subtitle">
+        Clear rates. Fair weighing. Easy pickup.
     </p>
-
-  </div>
-
-</section>
-
-
-
-<!-- WHATSAPP -->
-
-<section class="whatsapp">
-
-  <div class="container">
-
-    <div class="whatsapp-box">
-
-      <h2>
-        Have Scrap?
-      </h2>
-
-      <p>
-        Book a Scrapbird doorstep pickup in Madanapalle.
-      </p>
-
-      <a
-        class="whatsapp-button"
-        href="https://wa.me/919030755506?text=Hi%20Scrapbird%2C%20I%20want%20to%20book%20a%20scrap%20pickup%20in%20Madanapalle."
-        target="_blank">
-
-        💬 Book Scrap Pickup
-
-      </a>
-
+    <div class="price-grid">
+        <!-- IRON -->
+        <div class="price">
+            <div class="emoji">
+                🔩
+            </div>
+            <h3>
+                Iron
+            </h3>
+            <div class="amount">
+                ₹25/kg
+            </div>
+        </div>
+        <!-- ALUMINIUM -->
+        <div class="price">
+            <div class="emoji">
+                🥫
+            </div>
+            <h3>
+                Aluminium
+            </h3>
+            <div class="amount">
+                ₹173/kg
+            </div>
+        </div>
+        <!-- COPPER -->
+        <div class="price">
+            <div class="emoji">
+                🔌
+            </div>
+            <h3>
+                Copper
+            </h3>
+            <div class="amount">
+                ₹1,200/kg
+            </div>
+        </div>
+        <!-- BRASS -->
+        <div class="price">
+            <div class="emoji">
+                🚰
+            </div>
+            <h3>
+                Brass
+            </h3>
+            <div class="amount">
+                ₹680/kg
+            </div>
+        </div>
+        <!-- CARDBOARD -->
+        <div class="price">
+            <div class="emoji">
+                📦
+            </div>
+            <h3>
+                Cardboard
+            </h3>
+            <div class="amount">
+                ₹11/kg
+            </div>
+        </div>
+        <!-- PLASTIC -->
+        <div class="price">
+            <div class="emoji">
+                🧴
+            </div>
+            <h3>
+                Plastic
+            </h3>
+            <div class="amount">
+                ₹15/kg
+            </div>
+        </div>
+        <!-- BOOKS -->
+        <div class="price">
+            <div class="emoji">
+                📚
+            </div>
+            <h3>
+                Books
+            </h3>
+            <div class="amount">
+                ₹15/kg
+            </div>
+        </div>
+        <!-- NEWSPAPER -->
+        <div class="price">
+            <div class="emoji">
+                📰
+            </div>
+            <h3>
+                Newspaper
+            </h3>
+            <div class="amount">
+                ₹17/kg
+            </div>
+        </div>
     </div>
-
-  </div>
-
 </section>
-
-
-
+<!-- =====================================================
+     HOW SCRAPBIRD WORKS
+===================================================== -->
+<section class="pickup">
+    <h2 class="section-title">
+        How Scrapbird Works
+    </h2>
+    <p class="section-subtitle">
+        From pickup to recycling.
+    </p>
+    <div class="pickup-grid">
+        <div class="pickup-card">
+            <div class="icon">
+                📱
+            </div>
+            <h3>
+                Book Pickup
+            </h3>
+            <p>
+                Contact Scrapbird and
+                schedule your pickup.
+            </p>
+        </div>
+        <div class="pickup-card">
+            <div class="icon">
+                🚚
+            </div>
+            <h3>
+                Doorstep Pickup
+            </h3>
+            <p>
+                We come directly to
+                your doorstep.
+            </p>
+        </div>
+        <div class="pickup-card">
+            <div class="icon">
+                ⚖️
+            </div>
+            <h3>
+                Weighing
+            </h3>
+            <p>
+                Your scrap is weighed
+                transparently.
+            </p>
+        </div>
+        <div class="pickup-card">
+            <div class="icon">
+                💵
+            </div>
+            <h3>
+                Get Paid
+            </h3>
+            <p>
+                Get paid for your
+                recyclable scrap.
+            </p>
+        </div>
+    </div>
+</section>
+<!-- =====================================================
+     WHATSAPP
+===================================================== -->
+<section class="cta">
+    <h2>
+        Your Scrap. Your Money.
+    </h2>
+    <p>
+        Turn unused scrap into money.
+    </p>
+    <a
+        class="whatsapp"
+        href="https://wa.me/919030755506"
+        target="_blank"
+        rel="noopener">
+        💬 WhatsApp Scrapbird
+    </a>
+</section>
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 <footer>
-
-  © 2026 Scrapbird • Recycle • Reuse • Rebuild • Madanapalle
-
+    © 2026 Scrapbird ·
+    Your Scrap. Your Money. ♻️
 </footer>
-
-
-
 <script>
-
-function showPrices(){
-
-  const prices =
-    document.getElementById("prices");
-
-  const buttonText =
-    document.getElementById("priceButtonText");
-
-  const arrow =
-    document.getElementById("priceArrow");
-
-
-  if(!prices.classList.contains("show")){
-
-    prices.classList.add("show");
-
-    buttonText.textContent =
-      "Hide Price List";
-
-    arrow.textContent = "↑";
-
-
-    setTimeout(function(){
-
-      prices.scrollIntoView({
-        behavior:"smooth",
-        block:"start"
-      });
-
-    },100);
-
-
-  }else{
-
-    prices.classList.remove("show");
-
-    buttonText.textContent =
-      "See Full Price List";
-
-    arrow.textContent = "↓";
-
-
-    window.scrollTo({
-      top:0,
-      behavior:"smooth"
-    });
-
-  }
-
+/* =====================================================
+   CLEAN REPLAY ENGINE
+===================================================== */
+const hero =
+    document.querySelector(".hero");
+function playAnimation() {
+    /* Remove old animation */
+    hero.classList.remove("play");
+    /*
+       Force the browser to completely
+       reset the CSS animation.
+    */
+    void hero.offsetWidth;
+    /* Start a fresh animation */
+    hero.classList.add("play");
 }
-
+/* Start immediately */
+playAnimation();
+/*
+   Replay every 8.5 seconds.
+*/
+setInterval(
+    playAnimation,
+    8500
+);
+/*
+   Tap the animated hero to replay.
+*/
+hero.addEventListener(
+    "click",
+    playAnimation
+);
 </script>
-
-
 </body>
 </html>
